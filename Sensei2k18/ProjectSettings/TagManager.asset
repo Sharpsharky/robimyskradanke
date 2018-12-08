@@ -18,9 +18,9 @@ TagManager:
   - 
   - PostProcessing
   - Walkable
-  - Player
-  - 
-  - 
+  - Enemy
+  - Human
+  - Shadow
   - 
   - 
   - 
