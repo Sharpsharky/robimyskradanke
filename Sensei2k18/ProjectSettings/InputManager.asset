@@ -121,8 +121,8 @@ InputManager:
     m_Name: Y-Axis-KB1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: up
-    positiveButton: down
+    negativeButton: down
+    positiveButton: up
     altNegativeButton: 
     altPositiveButton: 
     gravity: 100
@@ -169,8 +169,8 @@ InputManager:
     m_Name: Y-Axis-KB2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: w
-    positiveButton: s
+    negativeButton: s
+    positiveButton: w
     altNegativeButton: 
     altPositiveButton: 
     gravity: 100
