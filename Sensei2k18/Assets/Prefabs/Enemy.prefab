@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4205749776587736}
   - component: {fileID: 114060257759757568}
+  - component: {fileID: 136903741326381036}
   - component: {fileID: 195971079409899062}
-  - component: {fileID: 135416155859206216}
   - component: {fileID: 114928774479845488}
   m_Layer: 10
   m_Name: Enemy
@@ -70,8 +70,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1288597492327818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3.67, y: -1, z: -0.14}
+  m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_Children:
   - {fileID: 4229379982223990}
   - {fileID: 4789199064423156}
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628152001205778}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4205749776587736}
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1518870578408018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4205749776587736}
@@ -158,10 +158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 1
-  runSpeed: 4
+  runSpeed: 5
   chaseRefresh: 0
-  enemyPath: []
-  cycle: 0
+  alertRefresh: 0.5
+  rangeAlertOtherGuards: 2.5
+  enemyPath:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cycle: 1
 --- !u!114 &114928774479845488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,8 +193,8 @@ MonoBehaviour:
   edgeDstThreshold: 0
   maskCutawayDst: 0.1
   viewMeshFilter: {fileID: 33892666384198994}
---- !u!135 &135416155859206216
-SphereCollider:
+--- !u!136 &136903741326381036
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -196,9 +202,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Radius: 0.2
+  m_Height: 6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195971079409899062
 NavMeshAgent:
   m_ObjectHideFlags: 1

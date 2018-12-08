@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146d5f389e7e0fc4788746876986d924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guardsChaseRadius: 7.5
+  guardsChaseRadius: 8.5
   standardChaseTime: 10
