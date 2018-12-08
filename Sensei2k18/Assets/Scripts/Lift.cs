@@ -19,12 +19,12 @@ public class Lift : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (other.CompareTag( "Human" )) {
+        if (collider.CompareTag( "Human" )) {
             hasHuman = true;
             Debug.Log("Human sie wbil");
-        } else if (other.CompareTag( "Shadow" )) {
+        } else if (collider.CompareTag( "Shadow" )) {
             hasShadow = true;
             Debug.Log( "Shadow sie wbil" );
         }
@@ -34,12 +34,12 @@ public class Lift : MonoBehaviour
         }       
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerExit2D(Collider2D collider)
     {
-        if (other.CompareTag( "Human" )) {
+        if (collider.CompareTag( "Human" )) {
             hasHuman = false;
             Debug.Log( "Human wypierdolil" );
-        } else if (other.CompareTag( "Shadow" )) {
+        } else if (collider.CompareTag( "Shadow" )) {
             hasShadow = false;
             Debug.Log( "Shadow wypierdolil" );
         }

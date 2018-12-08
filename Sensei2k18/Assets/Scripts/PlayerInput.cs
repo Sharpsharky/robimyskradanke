@@ -22,26 +22,14 @@ public class PlayerInput : MonoBehaviour
 
     public void SetControllerAxis()
     {
-        int amountOfJoys = Input.GetJoystickNames().Length;
-        Debug.Log( amountOfJoys );
-
         int playerNumber = 0;
+
         if (playerType == PlayerType.Human) {
             playerNumber = 1;
-            /*  // Jak nie ma padów podłączonych to człowiekowi przypisuje klawiature
-              if (amountOfJoys == 0) {
-                  SetAxisNames( "X-Axis-KB", "Y-Axis-KB", "Action-KB", playerNumber );
-                  return;
-              }*/
         } else {
             playerNumber = 2;
-            /* // Jak jest tylko jeden pad lub ich nie ma to cieniowi przypisuje klawiature
-             if (amountOfJoys <= 1) {
-
-                 return;
-             }*/
-
         }
+
         if (usesJoystick)
             SetAxisNames( "X-Axis-Pad", "Y-Axis-Pad", "Action-Pad", playerNumber );
         else

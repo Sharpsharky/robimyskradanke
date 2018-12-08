@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Movement();
     }
@@ -27,15 +27,6 @@ public class PlayerMovement : MonoBehaviour
         float x = input.GetXAxis() * Time.deltaTime * moveSpeed;
         float y = input.GetYAxis() * Time.deltaTime * moveSpeed;
 
-        rigidBody.velocity.Set( x, y );
-
-        Vector3 moveDirection = new Vector3( x, y, 0 ) * Time.deltaTime * moveSpeed;
-        transform.position = transform.position + moveDirection;
-
-        if (moveDirection.magnitude != 0) {
-            //   Quaternion rotation = Quaternion.Slerp( transform.rotation, Quaternion.LookRotation( moveDirection, transform.forward ), 0.8f );
-            // transform.rotation.Set( rotation.x);
-        }
-
+        rigidBody.velocity = new Vector2(x, y);
     }
 }
