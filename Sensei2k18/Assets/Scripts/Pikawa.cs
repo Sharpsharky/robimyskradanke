@@ -9,14 +9,14 @@ public class Pikawa : MonoBehaviour {
 
     
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter(Collider col)
     {
         if(col.tag == "Shadow")
         {
             targetGate.GetComponent<gateAnimator>().anim.SetBool("cienStoiNaPikawie", true);
         }
     }
-    void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit(Collider col)
     {
         if (col.tag == "Shadow")
         {
