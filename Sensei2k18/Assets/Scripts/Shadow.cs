@@ -15,16 +15,16 @@ public class Shadow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!IsInAnySourceOfLight()) {
+      /*  if (!IsInAnySourceOfLight()) {
             countdown += Time.deltaTime;
             if (countdown >= timeToDie)
                 gameMaster.LooseLevel();
         } else {
             countdown = 0f;
-        }
+        }*/
     }
 
-    public bool IsInAnySourceOfLight()
+   /* public bool IsInAnySourceOfLight()
     {
         foreach (FieldOfView light in gameMaster.SourceOfLights) {
             if (light.HasShadow())
@@ -36,5 +36,5 @@ public class Shadow : MonoBehaviour
                 return true;
         }
         return false;
-    }
+    }*/
 }

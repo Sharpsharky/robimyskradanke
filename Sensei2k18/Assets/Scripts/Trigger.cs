@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Trigger : MonoBehaviour
 
     protected Animator anim;
     protected Transform buttonA;
+    protected bool animState = false;
 
     public void Awake()
     {
@@ -23,7 +25,7 @@ public class Trigger : MonoBehaviour
 
     public void ShowAButton(bool show)
     {
-        if (buttonA != null) {
+        if (buttonA != null ) {
             buttonA.gameObject.SetActive( show );
         }
     }
@@ -36,6 +38,11 @@ public class Trigger : MonoBehaviour
                 TriggerSwitch( playerInput.playerType );
             }
         }
+    }
+
+    internal bool IsButtonEnabled()
+    {
+        return buttonA.gameObject.active;
     }
 
     public virtual void OnTriggerExit(Collider other)
@@ -64,18 +71,18 @@ public class Trigger : MonoBehaviour
 
     public virtual void TriggerSwitch(PlayerType playerType)
     {
-        if (playerType == this.playerType) {
 
+        if (playerType == this.playerType) {
+            Debug.Log("Weszło...");
+            animState = !animState;
             foreach (Triggered triggered in triggeredObjects) {
                 if (triggered.isActivated) {
                     triggered.OnDeactive();
-                    anim.SetBool( "open", false );
-                } else {
-                    anim.SetBool( "open", true );
+                } else {                 
                     triggered.OnActive();
                 }
-
             }
+            anim.SetBool( "open", animState );
 
         }
 

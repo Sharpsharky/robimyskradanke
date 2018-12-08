@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
@@ -8,7 +9,7 @@ public class GameMaster : MonoBehaviour
 
     public static GameMaster instance;
 
-    private LinkedList<EnemyMovement> enemies;
+    private LinkedList<Guard> guards;
     private LinkedList<FieldOfView> sourceOfLights;
     private LinkedList<FieldOfView> enemiesLights;
     private LinkedList<Trigger> interactionTriggers;
@@ -23,13 +24,13 @@ public class GameMaster : MonoBehaviour
             return;
         instance = this;
 
-        enemies = new LinkedList<EnemyMovement>();
+        guards = new LinkedList<Guard>();
         sourceOfLights = new LinkedList<FieldOfView>();
         enemiesLights = new LinkedList<FieldOfView>();
         interactionTriggers = new LinkedList<Trigger>();
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag( "Enemy" )) {
-            enemies.AddLast( enemy.GetComponent<EnemyMovement>() );
+            guards.AddLast( enemy.GetComponent<Guard>() );
             EnemiesLights.AddLast( enemy.GetComponent<FieldOfView>() );
         }
 
@@ -42,6 +43,12 @@ public class GameMaster : MonoBehaviour
             if (trg.triggerType == Trigger.TriggerType.Interaction)
                 interactionTriggers.AddLast( trg );
         }
+    }
+
+    internal bool IsInPlayersShadow()
+    {
+        float radius = shadow.GetComponent<SphereCollider>().radius;
+        return GetProperDistance(shadow.transform.position, human.transform.position) <= radius;
     }
 
     public void Start()
@@ -71,7 +78,7 @@ public class GameMaster : MonoBehaviour
     {
         int chasingEnemies = 0;
         humanIsBeingChased = true;
-        foreach (EnemyMovement enemy in enemies) {
+        foreach (Guard enemy in guards) {
             if (Vector3.Distance( enemy.transform.position, human.transform.position ) <= guardsChaseRadius) {
                 enemy.ChaseHuman();
                 chasingEnemies++;
@@ -86,10 +93,21 @@ public class GameMaster : MonoBehaviour
     {
         humanIsBeingChased = false;
         countdownToStopChase = 0f;
-        foreach (EnemyMovement enemy in enemies)
+        foreach (Guard enemy in guards)
             enemy.StopChasing();
         Debug.Log( "Dobra, chuj z nim" );
     }
+
+    public static Vector3 GetProperVectorY(Vector3 vectorToChange)
+    {
+        return new Vector3(vectorToChange.x, 0, vectorToChange.z);
+    }
+
+    public static float GetProperDistance(Vector3 vec1, Vector3 vec2)
+    {
+        return Vector3.Distance(GetProperVectorY(vec1), GetProperVectorY(vec2));
+    }
+ 
 
     public void LooseLevel()
     {
@@ -110,10 +128,10 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    public LinkedList<EnemyMovement> Enemies
+    public LinkedList<Guard> Guards
     {
         get {
-            return enemies;
+            return guards;
         }
     }
 

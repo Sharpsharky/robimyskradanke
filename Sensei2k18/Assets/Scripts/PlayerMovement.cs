@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 500f;
     public float triggerInteractionRange = 1f;
-    public float defaultTriggerLook = 0.5f;
+    public float defaultTriggerLook = 0.25f;
 
     private PlayerInput input;
     private Rigidbody rigidBody;
@@ -26,10 +26,12 @@ public class PlayerMovement : MonoBehaviour
         triggerLookCountdown += Time.fixedDeltaTime;
         if (triggerLookCountdown >= defaultTriggerLook) {
             ShowATriggerButton();
+            triggerLookCountdown = 0f;
         }
 
         if (currentTrigger != null) {
-            currentTrigger.ShowAButton( true );
+            if (!currentTrigger.IsButtonEnabled())
+                currentTrigger.ShowAButton( true );
             if (input.IsActionDown()) {
                 Action();
             }
@@ -55,14 +57,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void Action()
     {
-        currentTrigger.TriggerSwitch(input.playerType);
+        currentTrigger.TriggerSwitch( input.playerType );
     }
 
     // ZWRACA PIERWSZY ZNALEZIONY I BLISKI GRACZOWI TRIGGER
     public Trigger GetFirstClosestTrigger()
     {
         foreach (Trigger trigger in GameMaster.instance.InteractionTriggers) {
-            if (Vector3.Distance( transform.position, trigger.transform.position ) - 1f <= triggerInteractionRange) {
+
+            if (GameMaster.GetProperDistance( transform.position, trigger.transform.position ) <= triggerInteractionRange) {
                 if (trigger.playerType == input.playerType) {
                     return trigger;
                 }

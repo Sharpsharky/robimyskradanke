@@ -2,12 +2,18 @@
 using UnityEngine.AI;
 
 [RequireComponent( typeof( NavMeshAgent ) )]
-public class EnemyMovement : MonoBehaviour
+public class Guard : MonoBehaviour
 {
     [Header( "Movement Speeds" )]
     public float walkSpeed = 1.0f;
     public float runSpeed = 6.0f;
+
+    [Header("Timers")]
     public float chaseRefresh = 0.3f;
+    public float alertRefresh = 0.5f;
+
+    [Header("Range Alert")]
+    public float rangeAlertOtherGuards = 2.5f;
 
     [Header( "Standard path looping" )]
     public Transform[] enemyPath;
@@ -21,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isLoopMoving = true;
     private bool isChasingHuman = false;
     private float currentChaseRefresh = 0f;
+    private float alertCountdown = 0f;
 
     public void Awake()
     {
@@ -32,6 +39,12 @@ public class EnemyMovement : MonoBehaviour
     public void FixedUpdate()
     {
         if (isChasingHuman) {
+            alertCountdown += Time.fixedDeltaTime;
+            if ( alertCountdown >= alertRefresh) {
+                alertCountdown = 0f;
+                PokeNearGuards();
+            }
+
             currentChaseRefresh += Time.fixedDeltaTime;
             if (currentChaseRefresh >= chaseRefresh) {
                 ChaseHuman();
@@ -39,22 +52,11 @@ public class EnemyMovement : MonoBehaviour
             }
         }
 
-       /* if (HumanIsNear() && !isChasingHuman) {
-            ChaseHuman();
-            return;
-        }*/
-
         if (!isLoopMoving || enemyPath.Length <= 1)
             return;
 
         MovementLoop();
     }
-
-/*    private bool HumanIsNear()
-    {
-        SphereCollider humanCollider = GameMaster.instance.Human.GetComponent<SphereCollider>();
-        return Vector3.Distance( GameMaster.instance.Human.transform.position, transform.position ) <= humanDetectionDistance + humanCollider.radius;
-    }*/
 
     private void MovementLoop()
     {
@@ -93,6 +95,17 @@ public class EnemyMovement : MonoBehaviour
         currentTarget = lastPathTarget;
         isChasingHuman = false;
         isLoopMoving = true;
+    }
+
+    public void PokeNearGuards()
+    {
+        foreach ( Guard guard in GameMaster.instance.Guards ) {
+            if (guard.isChasingHuman)
+                continue;
+            if ( GameMaster.GetProperDistance(guard.transform.position, transform.position) <= rangeAlertOtherGuards  ) {
+                guard.ChaseHuman();
+            }
+        }
     }
 
     public void OnCollisionEnter(Collision collision)

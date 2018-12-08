@@ -18,7 +18,9 @@ public class Human : MonoBehaviour
         if (GameMaster.instance.HumanIsBeingChased)
             return;
 
-        if (IsInLight()) {
+        bool b = IsInLight();
+        Debug.Log("Is In Light? = " + b);
+        if (b) {
             countdown += Time.fixedDeltaTime;
             if (countdown >= timeToChase) {
                 GameMaster.instance.PokeEnemiesToChaseHuman();
@@ -46,6 +48,8 @@ public class Human : MonoBehaviour
 
     public bool IsInLight()
     {
+       // if (gameMaster.IsInPlayersShadow())
+          //  return false;
         foreach (FieldOfView light in gameMaster.SourceOfLights) {
             if (light.HasHuman())
                 return true;

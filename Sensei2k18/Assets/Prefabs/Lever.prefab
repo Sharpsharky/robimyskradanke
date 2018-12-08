@@ -36,9 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4470251127845838}
   - component: {fileID: 95768471845743250}
-  - component: {fileID: 114644680089503398}
   - component: {fileID: 65131244771332070}
-  - component: {fileID: 114284881138378290}
+  - component: {fileID: 114925512048545374}
   m_Layer: 14
   m_Name: Lever
   m_TagString: Trigger
@@ -57,12 +56,12 @@ GameObject:
   - component: {fileID: 212921763172400482}
   - component: {fileID: 95883303949362940}
   m_Layer: 14
-  m_Name: Bez nazwy-10
+  m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1943745242819662
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578021113103032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8411, y: -1.0346, z: 1.6657}
+  m_LocalPosition: {x: -0.9981596, y: 1, z: 2.8583663}
   m_LocalScale: {x: 0.22109978, y: 0.22109978, z: 0.22109978}
   m_Children:
   - {fileID: 4217871558835684}
@@ -182,7 +181,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114284881138378290
+--- !u!114 &114925512048545374
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,25 +189,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1578021113103032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0db7c16222ecc940bb1b879d7251232, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1ac92aa8cc47f438e9eb7ad0b8674d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   triggeredObjects:
   - {fileID: 0}
   playerType: 0
-  triggerType: 0
---- !u!114 &114644680089503398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1578021113103032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c907757bf73137469fd486412074b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  triggerType: 1
+  timer: 5
 --- !u!212 &212182408962904086
 SpriteRenderer:
   m_ObjectHideFlags: 1
