@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Human : MonoBehaviour {
+public class Human : MonoBehaviour
+{
 
     public float timeToChase = 1.5f;
 
@@ -10,20 +9,42 @@ public class Human : MonoBehaviour {
 
     public void FixedUpdate()
     {
-        if ( IsPlayerInLight() ) {
-            if (GameMaster.instance.HumanIsBeingChased)
-                return;
+        if (GameMaster.instance.HumanIsBeingChased)
+            return;
+
+        if (IsInLight()) {
             countdown += Time.fixedDeltaTime;
-            if ( countdown >= timeToChase ) {
-                GameMaster.instance.ChaseHuman();
+            if (countdown >= timeToChase) {
+                GameMaster.instance.PokeEnemiesToChaseHuman();
                 countdown = 0f;
+                Debug.Log( "Gonimy skurwiela!" );
             }
+        } else if (IsInGuardFieldOfView()) {
+            GameMaster.instance.PokeEnemiesToChaseHuman();
+            Debug.Log( "Widziałem skurwiela, gonimy go!" );
+        } else {
+            countdown -= Time.fixedDeltaTime;
         }
     }
 
-    public bool IsPlayerInLight()
+    public bool IsInGuardFieldOfView()
     {
+        foreach (FieldOfView light in GameMaster.instance.EnemiesLights) {
+            if (light.visibleTargets.Count >= 1)
+                return true;
+        }
         return false;
     }
+
+    public bool IsInLight()
+    {
+        foreach (FieldOfView light in GameMaster.instance.SourceOfLights) {
+            if (light.visibleTargets.Count >= 1)
+                return true;
+        }
+        return false;
+    }
+
+
 
 }

@@ -27,7 +27,6 @@ public class FieldOfView : MonoBehaviour {
 		viewMesh = new Mesh ();
 		viewMesh.name = "View Mesh";
 		viewMeshFilter.mesh = viewMesh;
-
 		StartCoroutine ("FindTargetsWithDelay", .2f);
 	}
 

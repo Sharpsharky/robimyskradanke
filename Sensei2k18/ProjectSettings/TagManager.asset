@@ -6,7 +6,10 @@ TagManager:
   tags:
   - Human
   - Shadow
-  - Walls
+  - Camera
+  - Enemy
+  - Obstacle
+  - CameraLight
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Enemy
   - Human
   - Shadow
-  - 
+  - Obstacle
   - 
   - 
   - 
