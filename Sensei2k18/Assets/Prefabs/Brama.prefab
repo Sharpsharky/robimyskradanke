@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4346801392462170}
   - component: {fileID: 212683704178488850}
   - component: {fileID: 65350844300754546}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: brama_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4787791449985184}
   - component: {fileID: 33972037383158644}
   - component: {fileID: 23380976543459420}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4274808855356550}
   - component: {fileID: 33806836234331200}
   - component: {fileID: 23527480042079148}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4316818136098410}
   - component: {fileID: 212519273955128640}
   - component: {fileID: 65473139337691662}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: brama_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4976429328986044}
   - component: {fileID: 212011209355974030}
   - component: {fileID: 65245164961056950}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: brama_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ GameObject:
   - component: {fileID: 4257446258277992}
   - component: {fileID: 95689733128508504}
   - component: {fileID: 114501456309993584}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Brama
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4033202084907814}
   - component: {fileID: 33588637148206072}
   - component: {fileID: 23661673048078524}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4073891668943302}
   - component: {fileID: 212164542889758976}
   - component: {fileID: 65745942462726338}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: brama_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4860033843504334}
   - component: {fileID: 33651773080534022}
   - component: {fileID: 23702844755511366}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
