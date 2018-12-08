@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
@@ -25,7 +24,7 @@ public class Trigger : MonoBehaviour
 
     public void ShowAButton(bool show)
     {
-        if (buttonA != null ) {
+        if (buttonA != null) {
             buttonA.gameObject.SetActive( show );
         }
     }
@@ -73,16 +72,18 @@ public class Trigger : MonoBehaviour
     {
 
         if (playerType == this.playerType) {
-            Debug.Log("Weszło...");
+            Debug.Log( "Weszło..." );
             animState = !animState;
             foreach (Triggered triggered in triggeredObjects) {
                 if (triggered.isActivated) {
                     triggered.OnDeactive();
-                } else {                 
+                } else {
                     triggered.OnActive();
                 }
             }
-            anim.SetBool( "open", animState );
+            if (anim != null) {
+                anim.SetBool( "open", animState );
+            }
 
         }
 
