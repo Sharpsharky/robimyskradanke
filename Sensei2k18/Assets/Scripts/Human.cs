@@ -6,6 +6,12 @@ public class Human : MonoBehaviour
     public float timeToChase = 1.5f;
 
     private float countdown = 0f;
+    private GameMaster gameMaster;
+
+    public void Start()
+    {
+        gameMaster = GameMaster.instance;
+    }
 
     public void FixedUpdate()
     {
@@ -24,13 +30,15 @@ public class Human : MonoBehaviour
             Debug.Log( "Widziałem skurwiela, gonimy go!" );
         } else {
             countdown -= Time.fixedDeltaTime;
+            if (countdown <= 0)
+                countdown = 0;
         }
     }
 
     public bool IsInGuardFieldOfView()
     {
-        foreach (FieldOfView light in GameMaster.instance.EnemiesLights) {
-            if (light.visibleTargets.Count >= 1)
+        foreach (FieldOfView light in gameMaster.EnemiesLights) {
+            if (light.HasHuman())
                 return true;
         }
         return false;
@@ -38,8 +46,8 @@ public class Human : MonoBehaviour
 
     public bool IsInLight()
     {
-        foreach (FieldOfView light in GameMaster.instance.SourceOfLights) {
-            if (light.visibleTargets.Count >= 1)
+        foreach (FieldOfView light in gameMaster.SourceOfLights) {
+            if (light.HasHuman())
                 return true;
         }
         return false;

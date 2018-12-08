@@ -3,11 +3,6 @@
 public class PlayerInput : MonoBehaviour
 {
 
-    public enum PlayerType
-    {
-        Human, Shadow
-    }
-
     public PlayerType playerType;
     public bool usesJoystick = false;
 

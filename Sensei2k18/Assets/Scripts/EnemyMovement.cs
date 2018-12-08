@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     [Header( "Movement Speeds" )]
     public float walkSpeed = 1.0f;
-    public float runSpeed = 4.0f;
+    public float runSpeed = 6.0f;
     public float chaseRefresh = 0.3f;
 
     [Header( "Standard path looping" )]
@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
     public bool cycle = false;
 
     private NavMeshAgent agent;
-    private Vector3 lastPosition;
     private Transform currentTarget;
     private Transform lastPathTarget;
     private int currentIndex = 0;
@@ -64,7 +63,6 @@ public class EnemyMovement : MonoBehaviour
             NextPoint();
         }
         lastPathTarget = currentTarget;
-        lastPosition = transform.position;
     }
 
     private void NextPoint()
