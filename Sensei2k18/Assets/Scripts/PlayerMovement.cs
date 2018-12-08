@@ -26,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = transform.position + moveDirection;
 
         if (moveDirection.magnitude != 0) {
-            Quaternion rotation = Quaternion.Slerp( transform.rotation, Quaternion.LookRotation( moveDirection, transform.up ), 0.8f );
-            transform.rotation = rotation;
+        //   Quaternion rotation = Quaternion.Slerp( transform.rotation, Quaternion.LookRotation( moveDirection, transform.forward ), 0.8f );
+           // transform.rotation.Set( rotation.x);
         }
 
     }
