@@ -13,6 +13,20 @@ public class Trigger : MonoBehaviour
     public PlayerType playerType;
     public TriggerType triggerType;
 
+   // private GameObject 
+
+   /* public void Awake()
+    {
+        
+    }*/
+
+    public void EnableAButton(bool enable)
+    {
+        if ( enable ) {
+
+        }
+    }
+
     public virtual void OnTriggerEnter(Collider other)
     {
         if (triggerType.Equals( TriggerType.OnTrigger )) {
