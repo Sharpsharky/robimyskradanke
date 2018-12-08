@@ -13,8 +13,14 @@ public abstract class Triggered : MonoBehaviour
             OnDeactive();
     }
 
-    public abstract void OnActive();
+    public virtual void OnActive()
+    {
+        isActivated = true;
+    }
 
-    public abstract void OnDeactive();
+    public virtual void OnDeactive()
+    {
+        isActivated = false;
+    }
 
 }

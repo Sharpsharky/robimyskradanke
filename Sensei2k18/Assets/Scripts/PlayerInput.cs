@@ -51,7 +51,7 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsActionDown()
     {
-        return Input.GetButton( action );
+        return Input.GetButtonDown( action );
     }
 
 

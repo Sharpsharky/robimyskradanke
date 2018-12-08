@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class TimeTrigger : Trigger {
+public class TimeTrigger : Trigger
+{
 
     public float timer = 5.0f;
 
@@ -14,18 +15,18 @@ public class TimeTrigger : Trigger {
 
         countdown += Time.fixedDeltaTime;
         if (countdown >= timer) {
-            TriggerSwitch();
+            TriggerSwitch( playerType );
             hasChanged = false;
             countdown = 0;
         }
-            
+
     }
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (hasChanged || triggerType != TriggerType.OnStand || !other.CompareTag( tag ))
-            return;
-        TriggerSwitch();
+        if (hasChanged) {
+            base.OnTriggerEnter( other );
+        }
     }
 
     public override void OnTriggerExit(Collider other)
@@ -33,9 +34,9 @@ public class TimeTrigger : Trigger {
         // NIC, TOTALNIE NIC
     }
 
-    public override void TriggerSwitch()
+    public override void TriggerSwitch(PlayerType playerType)
     {
-        base.TriggerSwitch();
+        base.TriggerSwitch( playerType );
         hasChanged = true;
     }
 }

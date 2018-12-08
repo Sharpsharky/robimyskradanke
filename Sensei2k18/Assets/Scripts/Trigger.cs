@@ -6,39 +6,31 @@ public class Trigger : MonoBehaviour
 
     public enum TriggerType
     {
-        Interaction, OnStand
+        Interaction, OnTrigger
     }
 
     public Triggered[] triggeredObjects;
     public PlayerType playerType;
     public TriggerType triggerType;
 
-    protected string tag;
-
-    public void Awake()
-    {
-        switch (playerType) {
-            case PlayerType.Human:
-                tag = "Human";
-                break;
-            case PlayerType.Shadow:
-                tag = "Shadow";
-                break;
-        }
-    }
-
     public virtual void OnTriggerEnter(Collider other)
     {
-        if (triggerType != TriggerType.OnStand || !other.CompareTag( tag ))
-            return;
-        TriggerOn();
+        if (triggerType.Equals( TriggerType.OnTrigger )) {
+            PlayerInput playerInput = other.GetComponent<PlayerInput>();
+            if (playerInput != null) {
+                TriggerSwitch(playerInput.playerType);
+            }
+        }
     }
 
     public virtual void OnTriggerExit(Collider other)
     {
-        if (triggerType != TriggerType.OnStand || !other.CompareTag( tag ))
-            return;
-        TriggerOff();
+        if (triggerType.Equals( TriggerType.OnTrigger )) {
+            PlayerInput playerInput = other.GetComponent<PlayerInput>();
+            if (playerInput != null) {
+                TriggerSwitch( playerInput.playerType );
+            }
+        }
     }
 
     public virtual void TriggerOn()
@@ -55,14 +47,15 @@ public class Trigger : MonoBehaviour
         }
     }
 
-    public virtual void TriggerSwitch()
+    public virtual void TriggerSwitch(PlayerType playerType)
     {
-        foreach (Triggered triggered in triggeredObjects) {
-            if (triggered.isActivated)
-                triggered.OnDeactive();
-            else
-                triggered.OnActive();
-        }
+        if (playerType == this.playerType)
+            foreach (Triggered triggered in triggeredObjects) {
+                if (triggered.isActivated)
+                    triggered.OnDeactive();
+                else
+                    triggered.OnActive();
+            }
     }
 
 }

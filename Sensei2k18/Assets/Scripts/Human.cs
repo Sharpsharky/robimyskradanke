@@ -23,7 +23,7 @@ public class Human : MonoBehaviour
             if (countdown >= timeToChase) {
                 GameMaster.instance.PokeEnemiesToChaseHuman();
                 countdown = 0f;
-                Debug.Log( "Gonimy skurwiela!" );
+                Debug.Log( "Gonimy skurwiela na kamerze!" );
             }
         } else if (IsInGuardFieldOfView()) {
             GameMaster.instance.PokeEnemiesToChaseHuman();

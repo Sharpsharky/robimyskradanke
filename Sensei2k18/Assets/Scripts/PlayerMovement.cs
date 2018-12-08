@@ -5,7 +5,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 500f;
-    public float triggerInteractionRange = 0.5f;
+    public float triggerInteractionRange = 1f;
 
     private PlayerInput input;
     private Rigidbody rigidBody;
@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-        if ( input.IsActionDown() )
+        if (input.IsActionDown())
             Action();
     }
 
     public void Movement()
-    {     
+    {
         float x = input.GetXAxis() * Time.fixedDeltaTime * moveSpeed;
         float y = input.GetYAxis() * Time.fixedDeltaTime * moveSpeed;
         rigidBody.velocity = new Vector3( x, 0, y );
@@ -32,9 +32,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Action()
     {
-        foreach ( Trigger trigger in GameMaster.instance.InteractionTriggers) {
-            if (Vector3.Distance(transform.position, trigger.transform.position) <= triggerInteractionRange ) {
-                trigger.TriggerSwitch();
+        foreach (Trigger trigger in GameMaster.instance.InteractionTriggers) {
+            Debug.Log( Vector3.Distance( transform.position, trigger.transform.position ) );
+            if (Vector3.Distance( transform.position, trigger.transform.position ) - 1f <= triggerInteractionRange) {
+                trigger.TriggerSwitch(input.playerType);
                 return;
             }
         }

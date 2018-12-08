@@ -19,6 +19,8 @@ public class Shadow : MonoBehaviour
             countdown += Time.deltaTime;
             if (countdown >= timeToDie)
                 gameMaster.LooseLevel();
+        } else {
+            countdown = 0f;
         }
     }
 
