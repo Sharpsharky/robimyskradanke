@@ -4,8 +4,11 @@ public abstract class Triggered : MonoBehaviour
 {
     public bool isActivated = false;
 
+    private Animator anim;
+
     public void Awake()
     {
+        anim = GetComponent<Animator>();
         if (isActivated)
             OnActive();
         else
@@ -19,7 +22,14 @@ public abstract class Triggered : MonoBehaviour
 
     public virtual void OnDeactive()
     {
-        isActivated = false;
+        isActivated = false;   
+    }
+
+    public void EnableAnimator(bool enabled)
+    {
+        if (anim != null) {
+            anim.SetBool( "open", enabled );
+        }
     }
 
 }

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4546780749287644}
   - component: {fileID: 114857927882719846}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
@@ -13,17 +12,19 @@ public class Trigger : MonoBehaviour
     public PlayerType playerType;
     public TriggerType triggerType;
 
-   // private GameObject 
+    protected Animator anim;
+    protected Transform buttonA;
 
-   /* public void Awake()
+    public void Awake()
     {
-        
-    }*/
+        anim = GetComponent<Animator>();
+        buttonA = transform.Find( "A" );
+    }
 
-    public void EnableAButton(bool enable)
+    public void ShowAButton(bool show)
     {
-        if ( enable ) {
-
+        if (buttonA != null) {
+            buttonA.gameObject.SetActive( show );
         }
     }
 
@@ -66,10 +67,14 @@ public class Trigger : MonoBehaviour
         if (playerType == this.playerType) {
 
             foreach (Triggered triggered in triggeredObjects) {
-                if (triggered.isActivated)
+                if (triggered.isActivated) {
                     triggered.OnDeactive();
-                else
+                    anim.SetBool( "open", false );
+                } else {
+                    anim.SetBool( "open", true );
                     triggered.OnActive();
+                }
+
             }
 
         }

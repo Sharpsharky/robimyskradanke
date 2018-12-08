@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657965255069806}
   - component: {fileID: 212995793601816600}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: patyk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,9 +39,9 @@ GameObject:
   - component: {fileID: 114644680089503398}
   - component: {fileID: 65131244771332070}
   - component: {fileID: 114284881138378290}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Lever
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4301068787565336}
   - component: {fileID: 212921763172400482}
   - component: {fileID: 95883303949362940}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Bez nazwy-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4217871558835684}
   - component: {fileID: 212182408962904086}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: wajcha_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

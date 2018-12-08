@@ -160,11 +160,7 @@ MonoBehaviour:
   walkSpeed: 1
   runSpeed: 4
   chaseRefresh: 0
-  enemyPath:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  enemyPath: []
   cycle: 0
 --- !u!114 &114928774479845488
 MonoBehaviour:
