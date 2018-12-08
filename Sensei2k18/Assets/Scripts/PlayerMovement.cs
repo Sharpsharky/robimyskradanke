@@ -1,20 +1,18 @@
 ﻿using UnityEngine;
 
 [RequireComponent( typeof( PlayerInput ) )]
-[RequireComponent( typeof( Rigidbody2D ) )]
+[RequireComponent( typeof( Rigidbody ) )]
 public class PlayerMovement : MonoBehaviour
 {
-
-    public float moveSpeed = 10f;
+    public float moveSpeed = 500f;
 
     private PlayerInput input;
-    private Rigidbody2D rigidBody;
+    private Rigidbody rigidBody;
 
     public void Awake()
     {
-        GetComponent<Rigidbody2D>().drag = 100.0f;
+        rigidBody = GetComponent<Rigidbody>();
         input = GetComponent<PlayerInput>();
-        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -23,10 +21,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Movement()
-    {
-        float x = input.GetXAxis() * Time.deltaTime * moveSpeed;
-        float y = input.GetYAxis() * Time.deltaTime * moveSpeed;
-
-        rigidBody.velocity = new Vector2(x, y);
+    {     
+        float x = input.GetXAxis() * Time.fixedDeltaTime * moveSpeed;
+        float y = input.GetYAxis() * Time.fixedDeltaTime * moveSpeed;
+        rigidBody.velocity = new Vector3( x, 0, y );
     }
 }

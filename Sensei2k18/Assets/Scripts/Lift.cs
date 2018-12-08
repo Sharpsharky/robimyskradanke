@@ -18,12 +18,11 @@ public class Lift : MonoBehaviour
             ExitLevel();
     }
 
-
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag( "Human" )) {
             hasHuman = true;
-            Debug.Log("Human sie wbil");
+            Debug.Log( "Human sie wbil" );
         } else if (collider.CompareTag( "Shadow" )) {
             hasShadow = true;
             Debug.Log( "Shadow sie wbil" );
@@ -31,10 +30,10 @@ public class Lift : MonoBehaviour
 
         if (HasBothPlayers()) {
             isCountingToExitLevel = true;
-        }       
+        }
     }
 
-    public void OnTriggerExit2D(Collider2D collider)
+    public void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag( "Human" )) {
             hasHuman = false;
