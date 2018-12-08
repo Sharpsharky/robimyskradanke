@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd72ede2c785b24f839b0a853a4f6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!95 &412052994
 Animator:
   serializedVersion: 3
@@ -403,6 +404,8 @@ GameObject:
   m_Component:
   - component: {fileID: 623707930}
   - component: {fileID: 623707929}
+  - component: {fileID: 623707932}
+  - component: {fileID: 623707931}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -463,12 +466,38 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 623707928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.41, y: 2.08, z: -0.3}
+  m_LocalPosition: {x: -2.39, y: 2.06, z: -0.3}
   m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623707931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623707928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b722f37ec42d1d248b8a9e3a5088d4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 0
+  usesJoystick: 0
+--- !u!114 &623707932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623707928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fc05b4d8ad74f439cf07257bdb55e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  input: {fileID: 623707931}
 --- !u!1 &1079822904
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,9 +582,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1183776975}
   - component: {fileID: 1183776974}
+  - component: {fileID: 1183776976}
+  - component: {fileID: 1183776977}
+  - component: {fileID: 1183776980}
+  - component: {fileID: 1183776979}
   m_Layer: 0
   m_Name: Shadow
-  m_TagString: Untagged
+  m_TagString: Shadow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,12 +646,73 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1183776973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.83, y: 0.89, z: -0.2}
+  m_LocalPosition: {x: -1.93, y: 0.99, z: -0.2}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1183776976
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183776973}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.0942771
+--- !u!50 &1183776977
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183776973}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1183776979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183776973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fc05b4d8ad74f439cf07257bdb55e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  input: {fileID: 1183776980}
+--- !u!114 &1183776980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1183776973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b722f37ec42d1d248b8a9e3a5088d4a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 1
+  usesJoystick: 0
 --- !u!1 &1279830057
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +722,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1279830059}
   - component: {fileID: 1279830058}
+  - component: {fileID: 1279830061}
+  - component: {fileID: 1279830060}
   m_Layer: 0
   m_Name: pikawka_0
   m_TagString: Untagged
@@ -689,13 +785,50 @@ Transform:
   m_GameObject: {fileID: 1279830057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.336, y: 2.425, z: 0}
-  m_LocalScale: {x: 0.155194, y: 0.155194, z: 0.155194}
+  m_LocalScale: {x: 0.155194, y: 0.155194, z: 0.4}
   m_Children:
   - {fileID: 1399261300}
   - {fileID: 1842406509}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279830060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279830057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0db7c16222ecc940bb1b879d7251232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGate: {fileID: 412052991}
+--- !u!61 &1279830061
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279830057}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.02252698}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.72, y: 4.35}
+    newSize: {x: 2.72, y: 4.35}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.584682, y: 4.0346117}
+  m_EdgeRadius: 0
 --- !u!1 &1399261299
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +840,7 @@ GameObject:
   - component: {fileID: 1399261301}
   m_Layer: 0
   m_Name: pikawka_1 (1)
-  m_TagString: Untagged
+  m_TagString: Shadow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,7 +1065,7 @@ GameObject:
   - component: {fileID: 1842406510}
   m_Layer: 0
   m_Name: pikawka_1
-  m_TagString: Untagged
+  m_TagString: Shadow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

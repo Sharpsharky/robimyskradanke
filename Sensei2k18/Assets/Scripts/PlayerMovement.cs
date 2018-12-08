@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Awake()
     {
+        GetComponent<Rigidbody2D>().drag = 100.0f;
         input = GetComponent<PlayerInput>();
         rigidBody = GetComponent<Rigidbody2D>();
     }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class gateAnimator : MonoBehaviour {
 
-    private Animator anim;
+    public Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
     }
-    void Update()
+    /*void Update()
     {
         if (Input.GetKey("space"))
         {
@@ -22,6 +22,6 @@ public class gateAnimator : MonoBehaviour {
             Debug.Log("CLOSE THE GATE");
             anim.SetBool("cienStoiNaPikawie", false);
         }
-    }
+    }*/
 
 }
