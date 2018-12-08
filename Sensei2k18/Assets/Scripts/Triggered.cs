@@ -2,7 +2,6 @@
 
 public abstract class Triggered : MonoBehaviour
 {
-
     public bool isActivated = false;
 
     public void Awake()

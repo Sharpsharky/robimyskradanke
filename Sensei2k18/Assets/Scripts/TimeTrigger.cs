@@ -14,7 +14,9 @@ public class TimeTrigger : Trigger
             return;
 
         countdown += Time.fixedDeltaTime;
+
         if (countdown >= timer) {
+            Debug.Log("działaj kurwa!!!");
             TriggerSwitch( playerType );
             hasChanged = false;
             countdown = 0;
@@ -24,8 +26,12 @@ public class TimeTrigger : Trigger
 
     public override void OnTriggerEnter(Collider other)
     {
-        if (hasChanged) {
-            base.OnTriggerEnter( other );
+        if (!hasChanged && triggerType.Equals( TriggerType.OnTrigger )) {
+            PlayerInput playerInput = other.GetComponent<PlayerInput>();
+            if (playerInput != null) {
+                TriggerSwitch( playerInput.playerType );
+                hasChanged = true;
+            }
         }
     }
 
@@ -36,7 +42,9 @@ public class TimeTrigger : Trigger
 
     public override void TriggerSwitch(PlayerType playerType)
     {
-        base.TriggerSwitch( playerType );
-        hasChanged = true;
+        if ( !hasChanged ) {
+            base.TriggerSwitch( playerType );
+            hasChanged = true;
+        }
     }
 }

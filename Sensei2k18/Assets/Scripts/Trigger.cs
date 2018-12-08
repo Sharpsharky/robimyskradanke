@@ -18,7 +18,7 @@ public class Trigger : MonoBehaviour
         if (triggerType.Equals( TriggerType.OnTrigger )) {
             PlayerInput playerInput = other.GetComponent<PlayerInput>();
             if (playerInput != null) {
-                TriggerSwitch(playerInput.playerType);
+                TriggerSwitch( playerInput.playerType );
             }
         }
     }
@@ -49,13 +49,17 @@ public class Trigger : MonoBehaviour
 
     public virtual void TriggerSwitch(PlayerType playerType)
     {
-        if (playerType == this.playerType)
+        if (playerType == this.playerType) {
+
             foreach (Triggered triggered in triggeredObjects) {
                 if (triggered.isActivated)
                     triggered.OnDeactive();
                 else
                     triggered.OnActive();
             }
+
+        }
+
     }
 
 }
