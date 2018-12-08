@@ -5,8 +5,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [Header( "Human Detection/Catch" )]
-    public float humanCatchDistance = 0.3f;
-    public float humanDetectionDistance = 1.2f;
+    public float humanDetectionDistance = 1.5f;
 
     [Header( "Standard path looping" )]
     public Transform[] enemyPath;
@@ -20,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     private int arrayDirection = 1;
     private bool isLoopMoving = true;
     private bool isChasingHuman = false;
+    private float chaseRefresh = 0f;
 
     public void Awake()
     {
@@ -30,18 +30,18 @@ public class EnemyMovement : MonoBehaviour
 
     public void FixedUpdate()
     {
-
-       /* if (HumanIsCatchable()) {
-            GameMaster.instance.LooseLevel();
-            return;
+        if (isChasingHuman) {
+            chaseRefresh += Time.fixedDeltaTime;
+            if (chaseRefresh >= 0.5f) {
+                ChaseHuman();
+                chaseRefresh = 0;
+            }
         }
 
-        if (HumanIsNear()) {
-            currentTarget = GameMaster.instance.Human.transform;
-
+        if (HumanIsNear() && !isChasingHuman) {
+            ChaseHuman();
             return;
-        }*/
-
+        }
 
         if (!isLoopMoving || enemyPath.Length <= 1)
             return;
@@ -51,12 +51,8 @@ public class EnemyMovement : MonoBehaviour
 
     private bool HumanIsNear()
     {
-        return Vector3.Distance( GameMaster.instance.Human.transform.position, transform.position ) <= humanDetectionDistance;
-    }
-
-    private bool HumanIsCatchable()
-    {
-        return Vector3.Distance( GameMaster.instance.Human.transform.position, transform.position ) <= humanCatchDistance;
+        SphereCollider humanCollider = GameMaster.instance.Human.GetComponent<SphereCollider>();
+        return Vector3.Distance( GameMaster.instance.Human.transform.position, transform.position ) <= humanDetectionDistance + humanCollider.radius;
     }
 
     private void MovementLoop()
@@ -84,7 +80,23 @@ public class EnemyMovement : MonoBehaviour
 
     public void ChaseHuman()
     {
+        isChasingHuman = true;
+        isLoopMoving = false;
+        currentTarget = GameMaster.instance.Human.transform;
         agent.SetDestination( currentTarget.position );
+    }
+
+    public void StopChasing()
+    {
+        currentTarget = lastPathTarget;
+        isChasingHuman = false;
+        isLoopMoving = false;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if ( collision.gameObject.CompareTag("Human") )
+            GameMaster.instance.LooseLevel();
     }
 
     public bool IsLoopMoving
