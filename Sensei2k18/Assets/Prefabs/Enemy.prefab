@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 1
   runSpeed: 5
-  chaseRefresh: 0
+  chaseRefresh: 0.3
   alertRefresh: 0.5
   rangeAlertOtherGuards: 2.5
   enemyPath:

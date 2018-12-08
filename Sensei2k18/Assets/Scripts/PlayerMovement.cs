@@ -19,11 +19,9 @@ public class PlayerMovement : MonoBehaviour
         input = GetComponent<PlayerInput>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Movement();
-
-        triggerLookCountdown += Time.fixedDeltaTime;
+        triggerLookCountdown += Time.deltaTime;
         if (triggerLookCountdown >= defaultTriggerLook) {
             ShowATriggerButton();
             triggerLookCountdown = 0f;
@@ -36,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
                 Action();
             }
         }
+    }
 
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     public void ShowATriggerButton()
