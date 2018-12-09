@@ -12,11 +12,16 @@ public class Lift : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
         if (!isCountingToExitLevel)
             return;
         countdown += Time.deltaTime;
         if (countdown >= exitLevelTime)
             ExitLevel();
+
     }
 
     public void OnTriggerEnter(Collider collider)
