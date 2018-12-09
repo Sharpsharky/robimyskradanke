@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 65868822967511614}
   - component: {fileID: 65855797242394886}
   - component: {fileID: 114727265071421938}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: winda wyjsciowa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,11 +8,11 @@ public class Guard : MonoBehaviour
     public float walkSpeed = 1.0f;
     public float runSpeed = 6.0f;
 
-    [Header("Timers")]
+    [Header( "Timers" )]
     public float chaseRefresh = 0.3f;
     public float alertRefresh = 0.5f;
 
-    [Header("Range Alert")]
+    [Header( "Range Alert" )]
     public float rangeAlertOtherGuards = 2.5f;
 
     [Header( "Standard path looping" )]
@@ -22,6 +22,8 @@ public class Guard : MonoBehaviour
     private NavMeshAgent agent;
     private Transform currentTarget;
     private Transform lastPathTarget;
+    private Vector3 lastPosition;
+
     private int currentIndex = 0;
     private int arrayDirection = 1;
     private bool isLoopMoving = true;
@@ -32,7 +34,7 @@ public class Guard : MonoBehaviour
     public void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (isLoopMoving && enemyPath.Length >= 2)
+        if (isLoopMoving && HasPath())
             currentTarget = enemyPath[0];
     }
 
@@ -40,7 +42,7 @@ public class Guard : MonoBehaviour
     {
         if (isChasingHuman) {
             alertCountdown += Time.fixedDeltaTime;
-            if ( alertCountdown >= alertRefresh) {
+            if (alertCountdown >= alertRefresh) {
                 alertCountdown = 0f;
                 PokeNearGuards();
             }
@@ -52,7 +54,7 @@ public class Guard : MonoBehaviour
             }
         }
 
-        if (!isLoopMoving || enemyPath.Length <= 1)
+        if (!isLoopMoving || !HasPath())
             return;
 
         MovementLoop();
@@ -82,6 +84,11 @@ public class Guard : MonoBehaviour
 
     public void ChaseHuman()
     {
+        if (!HasPath()) {
+            Debug.Log( "kurwa" );
+            lastPosition = transform.position;
+        }
+
         isChasingHuman = true;
         isLoopMoving = false;
         agent.speed = runSpeed;
@@ -91,18 +98,28 @@ public class Guard : MonoBehaviour
 
     public void StopChasing()
     {
-        agent.speed = walkSpeed;
-        currentTarget = lastPathTarget;
         isChasingHuman = false;
+        agent.speed = walkSpeed;
+        if (!HasPath()) {
+            Debug.Log( "wracam" );
+            agent.SetDestination( lastPosition );
+        } else {
+            currentTarget = lastPathTarget;
+        }
         isLoopMoving = true;
+    }
+
+    public bool HasPath()
+    {
+        return enemyPath.Length > 1;
     }
 
     public void PokeNearGuards()
     {
-        foreach ( Guard guard in GameMaster.instance.Guards ) {
+        foreach (Guard guard in GameMaster.instance.Guards) {
             if (guard.isChasingHuman)
                 continue;
-            if ( GameMaster.GetProperDistance(guard.transform.position, transform.position) <= rangeAlertOtherGuards  ) {
+            if (GameMaster.GetProperDistance( guard.transform.position, transform.position ) <= rangeAlertOtherGuards) {
                 guard.ChaseHuman();
             }
         }
@@ -110,7 +127,7 @@ public class Guard : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if ( collision.gameObject.CompareTag("Human") )
+        if (collision.gameObject.CompareTag( "Human" ))
             GameMaster.instance.LooseLevel();
     }
 

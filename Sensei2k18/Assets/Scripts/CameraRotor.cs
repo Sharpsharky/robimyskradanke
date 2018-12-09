@@ -4,14 +4,8 @@ using UnityEngine;
 public class CameraRotor : MonoBehaviour
 {
 
-    public enum Direction
-    {
-        Left, Right
-    }
-
-    public float startAngle = 0f;
     public float angleRotation = 180f;
-    public float rotateSpeed = 0.2f;
+    public float rotateSpeed = 10f;
 
     private Quaternion startDestination;
     private Quaternion endDestination;
@@ -20,19 +14,25 @@ public class CameraRotor : MonoBehaviour
 
     public void Start()
     {
-        transform.rotation = Quaternion.Euler( 0f, startAngle, 0f );
         startDestination = transform.rotation;
-        endDestination = Quaternion.Euler( 0f, startAngle + angleRotation, 0f );
+        endDestination = Quaternion.Euler( 0f, startDestination.eulerAngles.y + angleRotation, 0f );
         currentDestination = endDestination;
     }
 
     public void Update()
     {
-        transform.rotation = Quaternion.Slerp( transform.rotation, currentDestination, rotateSpeed );
-        if ( transform.rotation == currentDestination ) {
-            NextDestination();
+        transform.rotation = Quaternion.RotateTowards( transform.rotation, currentDestination, rotateSpeed * Time.deltaTime);
+        if ( IsNearDestination()  ) {
+           NextDestination();
         }
       
+    }
+
+    private bool IsNearDestination()
+    {
+        Vector3 euler1 = transform.rotation.eulerAngles;
+        Vector3 euler2 = currentDestination.eulerAngles;
+        return Mathf.Abs( euler1.y - euler2.y ) < 5.0f;
     }
 
     public void NextDestination()
@@ -41,7 +41,8 @@ public class CameraRotor : MonoBehaviour
             currentDestination = endDestination;
             isEndNext = !isEndNext;
         } else {
-
+            currentDestination = startDestination;
+            isEndNext = !isEndNext;
         }
     }
 }

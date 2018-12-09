@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65249405701734226}
   - component: {fileID: 65005806043077518}
   - component: {fileID: 65787226099143236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: winda wejsciowa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4652794550336678}
   - component: {fileID: 212864337946851122}
   - component: {fileID: 65749338941788140}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: kratka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1446690315175668}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.223, y: -0, z: -2.808}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 0.159, y: 0.159, z: 0.159}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,8 +51,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.656222, y: 1.5246466, z: 7.61}
-  m_Center: {x: 0, y: 0.12064564, z: -6.187872e-17}
+  m_Size: {x: 8.656222, y: 1.5246466, z: 16}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212864337946851122
 SpriteRenderer:
   m_ObjectHideFlags: 1
