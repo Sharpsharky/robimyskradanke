@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
             if (!currentTrigger.IsButtonEnabled())
                 currentTrigger.ShowAButton( true );
             if (input.IsActionDown()) {
+                Debug.Log(gameObject.name);
                 Action();
             }
         }

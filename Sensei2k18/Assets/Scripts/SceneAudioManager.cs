@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SceneAudioManager : MonoBehaviour {
 
+    public static SceneAudioManager instance;
+
     [SerializeField] AudioClip Intro_good;
     [SerializeField] AudioClip Intro_bad;
 
@@ -12,6 +14,13 @@ public class SceneAudioManager : MonoBehaviour {
     [SerializeField] AudioClip Main_bad;
 
     AudioSource _AudioSource;
+
+    public void Awake()
+    {
+        if (instance != null)
+            return;
+        instance = this;
+    }
 
     bool _MainMode = false;
     private void Start()

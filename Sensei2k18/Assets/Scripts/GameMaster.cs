@@ -62,7 +62,7 @@ public class GameMaster : MonoBehaviour
         if (!humanIsBeingChased)
             return;
 
-        if ( human.IsInLight()) {
+        if ( human.IsInLight() || human.IsInGuardFieldOfView() ) {
             countdownToStopChase = 0f;
             Debug.Log( "Timer zresetowany" );
             return;

@@ -19,16 +19,18 @@ public class Human : MonoBehaviour
 
         if (IsInLight()) {
             countdown += Time.fixedDeltaTime;
+            SceneAudioManager.instance.ChangeOnColissionenter();
             if (countdown >= timeToChase) {
                 GameMaster.instance.PokeEnemiesToChaseHuman();
                 countdown = 0f;
                 Debug.Log( "Gonimy skurwiela na kamerze!" );
             }
-        /*} else if (IsInGuardFieldOfView()) {
+        } else if (IsInGuardFieldOfView()) {
             GameMaster.instance.PokeEnemiesToChaseHuman();
-            Debug.Log( "Widziałem skurwiela, gonimy go!" );*/
+            Debug.Log( "Widziałem skurwiela, gonimy go!" );
         } else {
             countdown -= Time.fixedDeltaTime;
+            SceneAudioManager.instance.ChangeOnColissionExit();
             if (countdown <= 0)
                 countdown = 0;
         }
@@ -37,8 +39,9 @@ public class Human : MonoBehaviour
     public bool IsInGuardFieldOfView()
     {
         foreach (FieldOfView light in gameMaster.EnemiesLights) {
-            if (light.HasHuman())
+            if (light.HasHuman()) {
                 return true;
+            }         
         }
         return false;
     }
@@ -48,12 +51,11 @@ public class Human : MonoBehaviour
         if (gameMaster.IsInPlayersShadow())
             return false;
         foreach (FieldOfView light in gameMaster.SourceOfLights) {
-            if (light.HasHuman())
+            if (light.HasHuman()) {
                 return true;
+            }              
         }
         return false;
     }
-
-
 
 }
