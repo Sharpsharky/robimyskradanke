@@ -597,7 +597,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1408541606291228, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_Name
@@ -606,6 +606,10 @@ Prefab:
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3393663
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
@@ -1111,11 +1115,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_RootOrder
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 1408541606291228, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_Name
       value: Brama (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.37272117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
@@ -1297,11 +1305,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1408541606291228, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_Name
       value: Brama (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.36363098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
@@ -1714,7 +1726,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!1001 &1298590833
 Prefab:
@@ -2280,7 +2292,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.4333465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
@@ -2322,11 +2338,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1408541606291228, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
       propertyPath: m_Name
       value: Brama (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257446258277992, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.4333465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02ae44db47a9204aaea75a2bb8fa692, type: 2}
