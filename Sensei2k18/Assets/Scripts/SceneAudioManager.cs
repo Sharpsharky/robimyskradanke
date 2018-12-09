@@ -36,6 +36,7 @@ public class SceneAudioManager : MonoBehaviour
         _AudioSource.Play();
         yield return new WaitForSeconds( Intro_good.length );
         _AudioSource.clip = Main_good;
+        _AudioSource.Play();
         _AudioSource.loop = true;
         _MainMode = true;
     }
@@ -48,6 +49,7 @@ public class SceneAudioManager : MonoBehaviour
         else
             _AudioSource.clip = Intro_bad;
         _AudioSource.time = actTime;
+        _AudioSource.Play();
     }
 
     public void ChangeOnColissionExit()
@@ -58,6 +60,6 @@ public class SceneAudioManager : MonoBehaviour
         else
             _AudioSource.clip = Intro_good;
         _AudioSource.time = actTime;
-
+        _AudioSource.Play();
     }
 }

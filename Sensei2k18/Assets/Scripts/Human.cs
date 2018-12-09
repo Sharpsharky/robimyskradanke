@@ -39,28 +39,28 @@ public class Human : MonoBehaviour
     {
         foreach (FieldOfView light in gameMaster.EnemiesLights) {
             if (light.HasHuman()) {
-           //     SceneAudioManager.instance.ChangeOnColissionenter();
+          //      SceneAudioManager.instance.ChangeOnColissionenter();
                 return true;
             }
         }
-    //    SceneAudioManager.instance.ChangeOnColissionExit();
+     //  SceneAudioManager.instance.ChangeOnColissionExit();
         return false;
     }
 
     public bool IsInLight()
     {
         if (gameMaster.IsInPlayersShadow()) {
-          //  SceneAudioManager.instance.ChangeOnColissionExit();
+            //SceneAudioManager.instance.ChangeOnColissionExit();
             return false;
         }
 
         foreach (FieldOfView light in gameMaster.SourceOfLights) {
             if (light.HasHuman()) {
-          //      SceneAudioManager.instance.ChangeOnColissionenter();
+             //  SceneAudioManager.instance.ChangeOnColissionenter();
                 return true;
             }
         }
-      //  SceneAudioManager.instance.ChangeOnColissionExit();
+     //  SceneAudioManager.instance.ChangeOnColissionExit();
         return false;
     }
 
