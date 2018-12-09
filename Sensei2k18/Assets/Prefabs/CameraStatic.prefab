@@ -28,6 +28,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1102130255949044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4832063087206604}
+  m_Layer: 0
+  m_Name: Rest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1241627200905968
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4950584188551552}
   - component: {fileID: 114692108991770124}
+  - component: {fileID: 114044992403247044}
   m_Layer: 0
   m_Name: CameraStatic
   m_TagString: CameraLight
@@ -62,7 +78,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1358543771208904
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -77,7 +93,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1579080834243768
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -98,12 +114,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1579080834243768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4950584188551552}
-  m_RootOrder: 1
+  m_Father: {fileID: 4832063087206604}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4191055654742872
 Transform:
@@ -124,13 +140,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358543771208904}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.086, y: 0.352, z: 0.304}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.085999735, y: 0.352, z: 0.30399996}
+  m_LocalScale: {x: 0.4, y: 0.40000024, z: 1}
   m_Children:
   - {fileID: 4191055654742872}
-  m_Father: {fileID: 4950584188551552}
-  m_RootOrder: 2
+  m_Father: {fileID: 4832063087206604}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4528065957610494
 Transform:
@@ -145,22 +161,36 @@ Transform:
   m_Father: {fileID: 4950584188551552}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!4 &4832063087206604
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102130255949044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4136576387713708}
+  - {fileID: 4497132334115964}
+  m_Father: {fileID: 4950584188551552}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4950584188551552
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241627200905968}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.23, y: -1, z: -0.87}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.9, y: 0, z: -5.69}
   m_LocalScale: {x: 0.50887, y: 0.50887, z: 0.50887}
   m_Children:
   - {fileID: 4528065957610494}
-  - {fileID: 4136576387713708}
-  - {fileID: 4497132334115964}
+  - {fileID: 4832063087206604}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23655071202213294
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -221,6 +251,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114044992403247044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241627200905968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActivated: 1
 --- !u!114 &114692108991770124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -233,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 6
-  viewAngle: 115
+  viewAngle: 69
   targetMask:
     serializedVersion: 2
     m_Bits: 6144

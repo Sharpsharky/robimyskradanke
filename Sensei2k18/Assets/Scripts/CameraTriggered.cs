@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class CameraTriggered : Triggered {
 
-    private Transform mesh;
-    private Transform cameraLight;
+    private GameObject rest;
 
     public new void Awake()
     {
+        rest = transform.Find( "Rest" ).gameObject;
         base.Awake();
-        mesh = transform.Find("CameraMesh");
-        cameraLight = transform.Find("MigajaSzmata");
     }
 
     public override void OnActive()
     {
         base.OnActive();
-        mesh.gameObject.SetActive(true);
-        cameraLight.gameObject.SetActive( true );
+        rest.SetActive(true);
     }
 
     public override void OnDeactive()
     {
         base.OnDeactive();
-        mesh.gameObject.SetActive( false );
-        cameraLight.gameObject.SetActive( false );
+        rest.SetActive( false );
     }
 
 }
