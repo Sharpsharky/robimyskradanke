@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Lift : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class Lift : MonoBehaviour
 
     public void ExitLevel()
     {
-        Debug.Log("Wypierdalamy stad");
+        SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1 );
     }
 
 }

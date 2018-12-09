@@ -1,11 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
-public class SceneAudioManager : MonoBehaviour {
+[RequireComponent( typeof( AudioSource ) )]
+public class SceneAudioManager : MonoBehaviour
+{
 
-    public static SceneAudioManager instance;
+     public static SceneAudioManager instance;
 
     [SerializeField] AudioClip Intro_good;
     [SerializeField] AudioClip Intro_bad;
@@ -20,24 +20,21 @@ public class SceneAudioManager : MonoBehaviour {
         if (instance != null)
             return;
         instance = this;
-    }
-
-    bool _MainMode = false;
-    private void Start()
-    {
         _AudioSource = GetComponent<AudioSource>();
     }
 
+    bool _MainMode = false;
+
     private void OnEnable()
     {
-        StartCoroutine(PlayIntroEnumerator());
+        StartCoroutine( PlayIntroEnumerator() );
     }
 
     IEnumerator PlayIntroEnumerator()
     {
         _AudioSource.clip = Intro_good;
         _AudioSource.Play();
-        yield return new WaitForSeconds(Intro_good.length);
+        yield return new WaitForSeconds( Intro_good.length );
         _AudioSource.clip = Main_good;
         _AudioSource.loop = true;
         _MainMode = true;
@@ -51,7 +48,6 @@ public class SceneAudioManager : MonoBehaviour {
         else
             _AudioSource.clip = Intro_bad;
         _AudioSource.time = actTime;
-
     }
 
     public void ChangeOnColissionExit()

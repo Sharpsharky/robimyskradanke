@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1001 &121971196
 Prefab:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &300667985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Intro_good: {fileID: 8300000, guid: d309d0e47518af34abd1fec56add06d0, type: 3}
   Intro_bad: {fileID: 8300000, guid: 28ece882dee7a584988508a38912cdb0, type: 3}
-  Main_good: {fileID: 0}
-  Main_bad: {fileID: 0}
+  Main_good: {fileID: 8300000, guid: 120093aa5d321df4bb9df3d6ec7d2eea, type: 3}
+  Main_bad: {fileID: 8300000, guid: f6554b38ee7f7d94e88e3570ff88ef5c, type: 3}
 --- !u!82 &300667986
 AudioSource:
   m_ObjectHideFlags: 0
@@ -540,7 +540,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!4 &332310103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4105832084272060, guid: a04e24cb3f703724184374ccd689285f,
@@ -2397,7 +2397,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864871958381808, guid: 998a748ca54c7ac4abe5848ac1407a0e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.77
+      value: -12.45
       objectReference: {fileID: 0}
     - target: {fileID: 4864871958381808, guid: 998a748ca54c7ac4abe5848ac1407a0e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2405,7 +2405,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4864871958381808, guid: 998a748ca54c7ac4abe5848ac1407a0e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.96
+      value: 3.85
       objectReference: {fileID: 0}
     - target: {fileID: 4864871958381808, guid: 998a748ca54c7ac4abe5848ac1407a0e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2511,7 +2511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!4 &1358639323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4105832084272060, guid: a04e24cb3f703724184374ccd689285f,
@@ -2878,7 +2878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1001 &1557722710
 Prefab:
   m_ObjectHideFlags: 0
@@ -3091,7 +3091,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864120623926134, guid: 422e5abc444102447a2d1508a8675b4a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.77
+      value: -12.3
       objectReference: {fileID: 0}
     - target: {fileID: 4864120623926134, guid: 422e5abc444102447a2d1508a8675b4a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3099,7 +3099,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4864120623926134, guid: 422e5abc444102447a2d1508a8675b4a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.9600003
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 4864120623926134, guid: 422e5abc444102447a2d1508a8675b4a, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3193,7 +3193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1001 &1721376458
 Prefab:
   m_ObjectHideFlags: 0
@@ -3268,7 +3268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1001 &1773782086
 Prefab:
   m_ObjectHideFlags: 0
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1 &1786792590 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1241627200905968, guid: db5f0265bec056b4ca02eb2aa6b3ecdd,
@@ -3348,7 +3348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1800f8369f3adc04aaf8045dd9ee8796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActivated: 1
+  isActivated: 0
 --- !u!1001 &1798715380
 Prefab:
   m_ObjectHideFlags: 0

@@ -28,8 +28,8 @@ TagManager:
   - Obstacle
   - Trigger
   - Kratka
-  - 
-  - 
+  - CameraLight
+  - EnemyLight
   - 
   - 
   - 

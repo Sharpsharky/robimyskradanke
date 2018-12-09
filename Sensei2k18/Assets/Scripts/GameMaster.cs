@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
@@ -124,7 +125,7 @@ public class GameMaster : MonoBehaviour
 
     public void LooseLevel()
     {
-        Debug.Log( "Przegrałeś" );
+        SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
     }
 
     public GameObject Shadow
