@@ -12,7 +12,7 @@ public class Human : MonoBehaviour
         gameMaster = GameMaster.instance;
     }
 
-    public void FixedUpdate()
+   /* public void FixedUpdate()
     {
         if (GameMaster.instance.HumanIsBeingChased)
             return;
@@ -33,7 +33,7 @@ public class Human : MonoBehaviour
             if (countdown <= 0)
                 countdown = 0;
         }
-    }
+    }*/
 
     public bool IsInGuardFieldOfView()
     {

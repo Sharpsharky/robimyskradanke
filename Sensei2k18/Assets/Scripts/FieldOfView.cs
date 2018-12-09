@@ -29,7 +29,7 @@ public class FieldOfView : MonoBehaviour
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
-        StartCoroutine( "FindTargetsWithDelay", .35f );
+        //StartCoroutine( "FindTargetsWithDelay", .35f );
     }
 
 
@@ -46,9 +46,9 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfView();
     }
 
-    void FindVisibleTargets()
+    public bool FindVisibleTargets()
     {
-        visibleTargets.Clear();
+      //  visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere( transform.position, viewRadius, targetMask );
 
         for (int i = 0; i < targetsInViewRadius.Length; i++) {
@@ -57,12 +57,14 @@ public class FieldOfView : MonoBehaviour
             if (Vector3.Angle( transform.forward, dirToTarget ) < viewAngle / 2) {
                 float dstToTarget = Vector3.Distance( transform.position, target.position );
                 if (!Physics.Raycast( transform.position, dirToTarget, dstToTarget, obstacleMask )) {
-                    visibleTargets.Add( target );
+                    //   visibleTargets.Add( target );
+                    return true;
                    // GameMaster.instance.PopHasPlayer( this );
                    // return;
                 }
             }
         }
+        return false;
     }
 
     void DrawFieldOfView()

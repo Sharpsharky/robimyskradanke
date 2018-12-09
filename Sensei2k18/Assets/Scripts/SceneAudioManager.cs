@@ -14,6 +14,7 @@ public class SceneAudioManager : MonoBehaviour
     [SerializeField] AudioClip Main_bad;
 
     AudioSource _AudioSource;
+    private bool isPlayingBad = false;
 
     public void Awake()
     {
@@ -24,6 +25,17 @@ public class SceneAudioManager : MonoBehaviour
     }
 
     bool _MainMode = false;
+
+    public bool IsPlayingBad
+    {
+        get {
+            return isPlayingBad;
+        }
+
+        set {
+            isPlayingBad = value;
+        }
+    }
 
     private void OnEnable()
     {
@@ -50,6 +62,7 @@ public class SceneAudioManager : MonoBehaviour
             _AudioSource.clip = Intro_bad;
         _AudioSource.time = actTime;
         _AudioSource.Play();
+        isPlayingBad = true;
     }
 
     public void ChangeOnColissionExit()
@@ -61,5 +74,6 @@ public class SceneAudioManager : MonoBehaviour
             _AudioSource.clip = Intro_good;
         _AudioSource.time = actTime;
         _AudioSource.Play();
+        isPlayingBad = false;
     }
 }
