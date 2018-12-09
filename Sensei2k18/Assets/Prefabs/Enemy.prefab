@@ -168,6 +168,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   cycle: 1
+  loopRefresh: 1
 --- !u!114 &114928774479845488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,7 +184,7 @@ MonoBehaviour:
   viewAngle: 105
   targetMask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 2048
   obstacleMask:
     serializedVersion: 2
     m_Bits: 8192

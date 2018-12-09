@@ -29,7 +29,7 @@ public class FieldOfView : MonoBehaviour
         viewMesh = new Mesh();
         viewMesh.name = "View Mesh";
         viewMeshFilter.mesh = viewMesh;
-        StartCoroutine( "FindTargetsWithDelay", .2f );
+        StartCoroutine( "FindTargetsWithDelay", .35f );
     }
 
 
@@ -58,6 +58,8 @@ public class FieldOfView : MonoBehaviour
                 float dstToTarget = Vector3.Distance( transform.position, target.position );
                 if (!Physics.Raycast( transform.position, dirToTarget, dstToTarget, obstacleMask )) {
                     visibleTargets.Add( target );
+                    GameMaster.instance.PopHasPlayer( this );
+                    return;
                 }
             }
         }
@@ -187,21 +189,6 @@ public class FieldOfView : MonoBehaviour
 
     public bool HasHuman()
     {
-        foreach (Transform target in visibleTargets) {
-            if (target.CompareTag( "Human" ))
-                return true;
-        }
-        return false;
+        return visibleTargets.Count >= 1;
     }
-
-    public bool HasShadow()
-    {
-        foreach (Transform target in visibleTargets) {
-            if (target.gameObject.CompareTag( "Shadow" )) {
-                return true;
-            }  
-        }
-        return false;
-    }
-
 }

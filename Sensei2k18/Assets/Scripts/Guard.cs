@@ -18,11 +18,11 @@ public class Guard : MonoBehaviour
     [Header( "Standard path looping" )]
     public Transform[] enemyPath;
     public bool cycle = false;
+    public float loopRefresh = 1f;
 
     private NavMeshAgent agent;
     private Transform currentTarget;
     private Transform lastPathTarget;
-    private Vector3 lastPosition;
 
     private int currentIndex = 0;
     private int arrayDirection = 1;
@@ -31,11 +31,16 @@ public class Guard : MonoBehaviour
     private float currentChaseRefresh = 0f;
     private float alertCountdown = 0f;
 
+    private float movementLoopCountdown = 0f;
+
     public void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (isLoopMoving && HasPath())
+        if (isLoopMoving && HasPath()) {
             currentTarget = enemyPath[0];
+            agent.SetDestination( currentTarget.position );
+        }
+            
     }
 
     public void FixedUpdate()
@@ -57,12 +62,16 @@ public class Guard : MonoBehaviour
         if (!isLoopMoving || !HasPath())
             return;
 
-        MovementLoop();
+        movementLoopCountdown += Time.fixedDeltaTime;
+        if (movementLoopCountdown >= loopRefresh) {
+            MovementLoop();
+            movementLoopCountdown = 0f;
+        }
+
     }
 
     private void MovementLoop()
     {
-        agent.SetDestination( currentTarget.position );
         if (Vector3.Distance( currentTarget.position, transform.position ) < 0.4f) {
             NextPoint();
         }
@@ -80,15 +89,11 @@ public class Guard : MonoBehaviour
 
         currentIndex += arrayDirection;
         currentTarget = enemyPath[currentIndex];
+        agent.SetDestination( currentTarget.position );
     }
 
     public void ChaseHuman()
     {
-        if (!HasPath()) {
-            Debug.Log( "kurwa" );
-            lastPosition = transform.position;
-        }
-
         isChasingHuman = true;
         isLoopMoving = false;
         agent.speed = runSpeed;
@@ -100,13 +105,11 @@ public class Guard : MonoBehaviour
     {
         isChasingHuman = false;
         agent.speed = walkSpeed;
-        if (!HasPath()) {
-            Debug.Log( "wracam" );
-            agent.SetDestination( lastPosition );
-        } else {
-            currentTarget = lastPathTarget;
-        }
+        currentTarget = lastPathTarget;
         isLoopMoving = true;
+        if ( HasPath() ) {
+            agent.SetDestination( currentTarget.position );
+        }
     }
 
     public bool HasPath()

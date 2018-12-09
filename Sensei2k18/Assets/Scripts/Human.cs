@@ -2,7 +2,6 @@
 
 public class Human : MonoBehaviour
 {
-
     public float timeToChase = 1.5f;
 
     private float countdown = 0f;
@@ -25,9 +24,9 @@ public class Human : MonoBehaviour
                 countdown = 0f;
                 Debug.Log( "Gonimy skurwiela na kamerze!" );
             }
-        } else if (IsInGuardFieldOfView()) {
+        /*} else if (IsInGuardFieldOfView()) {
             GameMaster.instance.PokeEnemiesToChaseHuman();
-            Debug.Log( "Widziałem skurwiela, gonimy go!" );
+            Debug.Log( "Widziałem skurwiela, gonimy go!" );*/
         } else {
             countdown -= Time.fixedDeltaTime;
             if (countdown <= 0)

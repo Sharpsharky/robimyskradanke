@@ -62,7 +62,7 @@ public class GameMaster : MonoBehaviour
         if (!humanIsBeingChased)
             return;
 
-        if (human.IsInGuardFieldOfView() || human.IsInLight()) {
+        if ( human.IsInLight()) {
             countdownToStopChase = 0f;
             Debug.Log( "Timer zresetowany" );
             return;
@@ -72,6 +72,19 @@ public class GameMaster : MonoBehaviour
         if (countdownToStopChase >= standardChaseTime) {
             StopChasing();
         }
+    }
+
+    public void PopHasPlayer(FieldOfView fieldOfView)
+    {
+        if (fieldOfView.gameObject.CompareTag( "Enemy" )) {
+            if ( !humanIsBeingChased ) {
+                PokeEnemiesToChaseHuman();
+                Debug.Log( "Widziałem skurwiela, gonimy go!" );
+            } else {
+                countdownToStopChase = 0f;
+            }
+        }
+
     }
 
     public void PokeEnemiesToChaseHuman()
